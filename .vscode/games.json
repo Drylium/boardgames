@@ -1,0 +1,10 @@
+{
+    "games": [
+        {
+            "name": string,
+            "players": number,
+            "time": number,
+            "age": number
+        }
+    ]
+}
