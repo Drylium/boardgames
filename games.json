@@ -1,0 +1,10 @@
+{
+    "games": [
+        {
+            "name": "Dnd",
+            "players": "3",
+            "time": "20",
+            "age": "6"
+        }
+    ]
+}
