@@ -1,113 +1,32 @@
 {
-    "games": {
-        "name": "a",
-        "players": "a",
-        "time": "a",
-        "age": "a"
-    }
-}{
-    "games": {
-        "name": "a",
-        "players": "a",
-        "time": "a",
-        "age": "a"
-    }
-}{
-    "games": {
-        "name": "a",
-        "players": "a",
-        "time": "a",
-        "age": "a"
-    }
-}{
-    "games": {
-        "name": "a",
-        "players": "a",
-        "time": "a",
-        "age": "a"
-    }
-}{
-    "games": {
-        "name": "a",
-        "players": "a",
-        "time": "a",
-        "age": "a"
-    }
-}{
-    "games": {
-        "name": "a",
-        "players": "a",
-        "time": "a",
-        "age": "a"
-    }
-}{
-    "games": {
-        "name": "a",
-        "players": "a",
-        "time": "a",
-        "age": "a"
-    }
-}{
-    "games": {
-        "name": "a",
-        "players": "a",
-        "time": "a",
-        "age": "a"
-    }
-}{
-    "games": {
-        "name": "a",
-        "players": "a",
-        "time": "a",
-        "age": "a"
-    }
-}{
-    "games": {
-        "name": "a",
-        "players": "a",
-        "time": "a",
-        "age": "a"
-    }
-}{
-    "games": {
-        "name": "a",
-        "players": "a",
-        "time": "a",
-        "age": "a"
-    }
-}{
-    "games": {
-        "name": "a",
-        "players": "a",
-        "time": "a",
-        "age": "a"
-    }
-}{
-    "games": {
-        "name": "a",
-        "players": "a",
-        "time": "a",
-        "age": "a"
-    }
-}{
-    "games": {
-        "name": "a",
-        "players": "a",
-        "time": "a",
-        "age": "a"
-    }
-}{
-    "games": {
-        "name": "a",
-        "players": "a",
-        "time": "a",
-        "age": "a"
-    }
-}{
-    "games": {
-        "name": "a",
-        "players": "a",
-        "time": "a",
-        "age": "a"
-    }
+    "games": [
+        {
+            "id": 0,
+            "name": "l",
+            "players": 4,
+            "time": 4,
+            "age": 4
+        },
+        {
+            "id": 1,
+            "name": "dvd",
+            "players": 4,
+            "time": 4,
+            "age": 4
+        },
+        {
+            "id": 2,
+            "name": "DnD",
+            "players": 4,
+            "time": 60,
+            "age": 8
+        },
+        {
+            "id": 3,
+            "name": "l",
+            "players": 4,
+            "time": 4,
+            "age": 4
+        }
+    ]
 }
