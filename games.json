@@ -2,31 +2,31 @@
     "games": [
         {
             "id": 0,
-            "name": "l",
+            "name": "dnd",
             "players": 4,
-            "time": 4,
-            "age": 4
+            "time": 60,
+            "age": 7
         },
         {
             "id": 1,
-            "name": "dvd",
-            "players": 4,
-            "time": 4,
-            "age": 4
+            "name": "talisman",
+            "players": 6,
+            "time": 120,
+            "age": 12
         },
         {
             "id": 2,
-            "name": "DnD",
-            "players": 4,
-            "time": 60,
-            "age": 8
+            "name": "arkham horror",
+            "players": 6,
+            "time": 120,
+            "age": 12
         },
         {
             "id": 3,
-            "name": "l",
-            "players": 4,
-            "time": 4,
-            "age": 4
+            "name": "chess",
+            "players": 2,
+            "time": 30,
+            "age": 10
         }
     ]
 }
