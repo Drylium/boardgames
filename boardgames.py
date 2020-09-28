@@ -4,17 +4,17 @@ from json.decoder import JSONDecodeError
 class Games:
     def __init__(self):
         self.games = []
-    def addGame(self, game):
+    def addGame(self, game):    #Tilläggsfunktion.
         self.games.append(game)
     def toJson(self):
         return self.__dict__
     def __repr__(self):
         return self.toJson()
-    def removeGame(self, item):
+    def removeGame(self, item):   #Raderingsfunktion.
         for game in self.games:
             if game == item:
                 self.games.remove(game)
-    def setIDs(self):
+    def setIDs(self):   #ID generator.
         i = 0
         for games in self.games:
             game['id'] = i
@@ -28,7 +28,7 @@ class Game:
         self.time = time
         self.age = age
 
-def searchGame(query, value, list):
+def searchGame(query, value, list):  #Sökfunktion.
     result = []
     if query == "name":
         for game in list:
@@ -79,18 +79,18 @@ def printGames(games):
         print(i)
 
 def saveGames(games):
-    with open("games.json", "w+") as write_file:    #put the dict's into json file.
+    with open("games.json", "w+") as write_file:    #Lägg till dict's till json fil.
         json.dump(games.toJson(), write_file, indent=4)
         json_string = games.toJson()
 
-def editGame(game):
+def editGame(game):  #Redigera spel.
     if game is None:
         game = Game(None, None, None, None).__dict__
     while True:
         try:
             game['name'] = input("Namn: ")
             game["players"] = int(input("Antal spelare: "))
-            game["time"] = int(input("Tidsåtgång: "))
+            game["time"] = int(input("Tidsåtgång i minuter: "))
             game["age"] = int(input("Rekomenderande ålder: "))
             return game
         except ValueError:
@@ -101,7 +101,7 @@ def editGame(game):
 
 
 a = int(input("1.Lägga till ett spel\n2.Hitta ett spel\n3.Se lista över alla spel\n4.Redigera ett spel\n5.Radera ett spel\n6. Avbryt\n"))
-while (a == 1):   #if you want to put in a game.
+while (a == 1):   #Lägga till spel.
     games = gamesFromFile()
     game = editGame(None)
     games.addGame(game)
@@ -117,7 +117,7 @@ while (a == 1):   #if you want to put in a game.
         else:
             answer = input("Svara med ett ja eller nej tack!\n")
 
-if (a == 2):    #if you want to withdraw.
+if (a == 2):    #Hitta spel.
     with open("games.json", "r") as f:
         data = json.load(f)
         games = arrayFromJson(data)
@@ -152,10 +152,10 @@ if (a == 2):    #if you want to withdraw.
         else:
             print("Hittade inga spel")        
 
-elif (a == 3):    #if you want to see a list of all the games.
+elif (a == 3):    #Lista över alla spel.
     games = gamesFromFile()
     printGames(games)
-elif (a == 4):
+elif (a == 4):    #Redigera spel.
     games = gamesFromFile()
     printGames(games)
     while True:
@@ -174,7 +174,7 @@ elif (a == 4):
             saveGames(games)
 
             if isGameEdited == True : break
-elif (a == 5):
+elif (a == 5):      #Radera spel.
     games = gamesFromFile()
     printGames(games)
     while True:
@@ -194,12 +194,9 @@ elif (a == 5):
 
             if isGameRemoved == True : break
             
-                
-
-elif (1 == 6):
+elif (a == 6):    #Avslutar programmet.
     print("Avslutar..")
-    quit()
-else:
+else:    #Om man skriver in något som inte är ett alternativ.
     input("Inte ett giltigt värde, försök igen.\n")
-
-#put the dict's into json file.
+        
+        
