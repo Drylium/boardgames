@@ -198,3 +198,6 @@ elif (a == 6):    #Avslutar programmet.
     print("Avslutar..")
 else:    #Om man skriver in något som inte är ett alternativ.
     input("Inte ett giltigt värde, försök igen.\n")
+        
+        
+
