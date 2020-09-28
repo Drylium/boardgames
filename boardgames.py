@@ -44,7 +44,7 @@ def searchGame(query, value, list):  #Sökfunktion.
                 result.append(game)
     elif query == "age":
         for game in list:
-            if int(game.list) == int(value):
+            if int(game.age) == int(value):
                 result.append(game)
     return result
 
