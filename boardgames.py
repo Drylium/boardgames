@@ -198,8 +198,8 @@ elif (a == 5):
 
 elif (1 == 6):
     print("Avslutar..")
+    quit()
 else:
-    answer.isnumeric() == False
-    input("Inte ett giltigt svar, försök igen.\n")
+    input("Inte ett giltigt värde, försök igen.\n")
 
 #put the dict's into json file.
