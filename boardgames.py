@@ -98,106 +98,112 @@ def editGame(game):  #Redigera spel.
             continue
         else:
             break
-
-
-a = int(input("1.Lägga till ett spel\n2.Hitta ett spel\n3.Se lista över alla spel\n4.Redigera ett spel\n5.Radera ett spel\n6. Avbryt\n"))
-while (a == 1):   #Lägga till spel.
-    games = gamesFromFile()
-    game = editGame(None)
-    games.addGame(game)
-    games.setIDs()
-    saveGames(games)
-        
-    answer = input("Vill du lägga till fler spel?\n")    
-    while input != "ja":
-        if answer == "ja":
-            break
-        elif answer == "nej":
-            quit()
-        else:
-            answer = input("Svara med ett ja eller nej tack!\n")
-
-if (a == 2):    #Hitta spel.
-    with open("games.json", "r") as f:
-        data = json.load(f)
-        games = arrayFromJson(data)
-        print("Vad vill du söka på?")
-        answer = int(input("1. Titel\n2. Antal spelare\n3. Tidsåtgång\n4. Rekomenderad ålder\n5. Avbryt\n"))
-        result = []
-        while True:
-            if (answer == 1):
-                titel = input("Ange titel: ")
-                result = searchGame("name", titel, games)
-                break
-            elif (answer == 2):
-                players = input("Ange antal spelare: ")
-                result = searchGame("players", players, games)
-                break
-            elif (answer == 3):
-                time = input("Ange tidsåtgång: ")
-                result = searchGame("time", time, games)
-                break
-            elif (answer == 4):
-                age = input("Ange rekomenderad ålder: ")
-                result = searchGame("age", age, games)
-                break
-            elif (answer == 5):
-                break
-            else:
-                print("Ogiltigt värde")
-                answer = input()
-        if len(result):
-            for i in result:
-                print(i.__dict__)
-        else:
-            print("Hittade inga spel")        
-
-elif (a == 3):    #Lista över alla spel.
-    games = gamesFromFile()
-    printGames(games)
-elif (a == 4):    #Redigera spel.
-    games = gamesFromFile()
-    printGames(games)
-    while True:
-        answer = input("Ange ID på spelet du vill redigera:\nAnge \"avbryt\" om du vill avbryta\n ")
-        if answer == "avbryt" or answer == "Avbryt":
-            break
-        elif answer.isnumeric() == False:
-            print("ogiltigt värde")
-        else:
-            isGameEdited = False   
-            for game in games.games:
-                if int(game['id']) == int(answer):
-                    editGame(game)
-                    isGameEdited = True
-            print("Spel redigerat") if isGameEdited == True else print("Spel hittades ej")
-            saveGames(games)
-
-            if isGameEdited == True : break
-elif (a == 5):      #Radera spel.
-    games = gamesFromFile()
-    printGames(games)
-    while True:
-        answer = input("Ange ID på spelet du vill radera:\nAnge \"avbryt\" om du vill avbryta\n ")
-        if answer == "avbryt" or answer == "Avbryt":
-            break
-        elif answer.isnumeric() == False:
-            print("ogiltigt värde")
-        else:
-            isGameRemoved = False   
-            for game in games.games:
-                if int(game['id']) == int(answer):
-                    games.removeGame(game)
-                    isGameRemoved = True
-            print("Spel borttaget") if isGameRemoved == True else print("Spel hittades ej")
-            saveGames(games)
-
-            if isGameRemoved == True : break
+while True:
+    try:
+        a = int(input("1.Lägga till ett spel\n2.Hitta ett spel\n3.Se lista över alla spel\n4.Redigera ett spel\n5.Radera ett spel\n6. Avbryt\n"))
+    except ValueError:
+        print("Ogiltigt värde, försök igen\n")
+        continue
+    if (a == 1):   #Lägga till spel.
+        games = gamesFromFile()
+        game = editGame(None)
+        games.addGame(game)
+        games.setIDs()
+        saveGames(games)
             
-elif (a == 6):    #Avslutar programmet.
-    print("Avslutar..")
-else:    #Om man skriver in något som inte är ett alternativ.
-    input("Inte ett giltigt värde, försök igen.\n")
+        answer = input("Vill du lägga till fler spel?\n")    
+        while input != "ja":
+            if answer == "ja":
+                break
+            elif answer == "nej":
+                quit()
+            else:
+                answer = input("Svara med ett ja eller nej tack!\n")
+
+    elif (a == 2):    #Hitta spel.
+        with open("games.json", "r") as f:
+            data = json.load(f)
+            games = arrayFromJson(data)
+            print("Vad vill du söka på?")
+            answer = int(input("1. Titel\n2. Antal spelare\n3. Tidsåtgång\n4. Rekomenderad ålder\n5. Avbryt\n"))
+            result = []
+            while True:
+                if (answer == 1):
+                    titel = input("Ange titel: ")
+                    result = searchGame("name", titel, games)
+                    break
+                elif (answer == 2):
+                    players = input("Ange antal spelare: ")
+                    result = searchGame("players", players, games)
+                    break
+                elif (answer == 3):
+                    time = input("Ange tidsåtgång: ")
+                    result = searchGame("time", time, games)
+                    break
+                elif (answer == 4):
+                    age = input("Ange rekomenderad ålder: ")
+                    result = searchGame("age", age, games)
+                    break
+                elif (answer == 5):
+                    break
+                else:
+                    print("Ogiltigt värde")
+                    answer = input()
+            if len(result):
+                for i in result:
+                    print(i.__dict__)
+            else:
+                print("Hittade inga spel")        
+
+    elif (a == 3):    #Lista över alla spel.
+        games = gamesFromFile()
+        printGames(games)
+    elif (a == 4):    #Redigera spel.
+        games = gamesFromFile()
+        printGames(games)
+        while True:
+            answer = input("Ange ID på spelet du vill redigera:\nAnge \"avbryt\" om du vill avbryta\n ")
+            if answer == "avbryt" or answer == "Avbryt":
+                break
+            elif answer.isnumeric() == False:
+                print("ogiltigt värde")
+            else:
+                isGameEdited = False   
+                for game in games.games:
+                    if int(game['id']) == int(answer):
+                        editGame(game)
+                        isGameEdited = True
+                print("Spel redigerat") if isGameEdited == True else print("Spel hittades ej")
+                saveGames(games)
+
+                if isGameEdited == True : break
+    elif (a == 5):      #Radera spel.
+        games = gamesFromFile()
+        printGames(games)
+        while True:
+            answer = input("Ange ID på spelet du vill radera:\nAnge \"avbryt\" om du vill avbryta\n ")
+            if answer == "avbryt" or answer == "Avbryt":
+                break
+            elif answer.isnumeric() == False:
+                print("ogiltigt värde")
+            else:
+                isGameRemoved = False   
+                for game in games.games:
+                    if int(game['id']) == int(answer):
+                        games.removeGame(game)
+                        isGameRemoved = True
+                print("Spel borttaget") if isGameRemoved == True else print("Spel hittades ej")
+                saveGames(games)
+
+                if isGameRemoved == True : break
+                
+    elif (a == 6):    #Avslutar programmet.
+        print("Avslutar..")
+        break
+            
+    else:    #Om man skriver in något som inte är ett alternativ.
+        print("Inte ett giltigt värde, försök igen.\n")
         
+            
         
 
