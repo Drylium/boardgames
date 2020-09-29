@@ -179,7 +179,7 @@ while True:
                 elif a == "nej":
                     quit()
                 else:
-                    a = input("Svara med ett ja eller nej")
+                    a = input("Svara med ett ja eller nej\n")
                
     elif (a == 3):    #Lista över alla spel.
         games = gamesFromFile()
