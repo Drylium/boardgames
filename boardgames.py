@@ -135,19 +135,19 @@ while True:
                     if (answer == 1):
                         titel = input("Ange titel: ")
                         result = searchGame("name", titel, games)
-                        break
+                        
                     elif (answer == 2):
                         players = input("Ange antal spelare: ")
                         result = searchGame("players", players, games)
-                        break
+                        
                     elif (answer == 3):
                         time = input("Ange tidsåtgång: ")
                         result = searchGame("time", time, games)
-                        break
+                        
                     elif (answer == 4):
                         age = input("Ange rekomenderad ålder: ")
                         result = searchGame("age", age, games)
-                        break
+                        
                     elif (answer == 5):
                         quit()
                     else:
@@ -166,20 +166,20 @@ while True:
                 else:
                     print("Ogiltigt värde")
                     
-                if len(result):
-                    for i in result:
-                        print(i.__dict__)
-                else:
-                    print("Hittade inga spel")  
+            if len(result):
+                for i in result:
+                    print(i.__dict__)
+            else:
+                print("Hittade inga spel")  
 
-                a = input("Vill du söka igen?\n")
-                while input != "ja":
-                    if a == "ja":
-                        break
-                    elif a == "nej":
-                        quit()
-                    else:
-                        a = input("Svara med ett ja eller nej")
+            a = input("Vill du söka igen?\n")
+            while input != "ja":
+                if a == "ja":
+                    break
+                elif a == "nej":
+                    quit()
+                else:
+                    a = input("Svara med ett ja eller nej")
                
     elif (a == 3):    #Lista över alla spel.
         games = gamesFromFile()
