@@ -153,7 +153,7 @@ while True:
                         else:
                             print("Ogiltigt värde")
                             answer = input()
-                    print("Vill du lägga till en till egenskap?\n")
+                    print("Vill du använda en till egenskap?\n")
                     answer = int(input("1. Titel\n2. Antal spelare\n3. Tidsåtgång\n4. Rekomenderad ålder\n5. Avbryt\n"))
                     while True:
                         if (answer == 1):
