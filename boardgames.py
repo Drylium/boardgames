@@ -158,7 +158,7 @@ while True:
                     continue
 
                 print("Vill du använda en till egenskap?\n")
-                answer = input("ange ja eller nej")
+                answer = input("ange ja eller nej\n")
                 if answer == "ja":
                     continue
                 elif answer == "nej":
