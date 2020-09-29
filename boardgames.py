@@ -113,7 +113,7 @@ while True:
         games.setIDs()
         saveGames(games)
             
-        answer = input("Vill du lägga till fler spel?\n")    
+        answer = input("Vill du fortsätta med programmet?\n")    
         while input != "ja":
             if answer == "ja":
                 break

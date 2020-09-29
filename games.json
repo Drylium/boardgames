@@ -27,6 +27,13 @@
             "players": 2,
             "time": 30,
             "age": 8
+        },
+        {
+            "id": 4,
+            "name": "monopol",
+            "players": 5,
+            "time": 100,
+            "age": 5
         }
     ]
 }
