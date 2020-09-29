@@ -98,8 +98,10 @@ def editGame(game):  #Redigera spel.
             continue
         else:
             break
+
+
 while True:
-    try:
+    try:     #Se till att man skriver in en siffra, annars printa "ogiltigt värde"
         a = int(input("1.Lägga till ett spel\n2.Hitta ett spel\n3.Se lista över alla spel\n4.Redigera ett spel\n5.Radera ett spel\n6. Avbryt\n"))
     except ValueError:
         print("Ogiltigt värde, försök igen\n")
@@ -125,39 +127,73 @@ while True:
             data = json.load(f)
             games = arrayFromJson(data)
             print("Vad vill du söka på?")
-            try:
-                answer = int(input("1. Titel\n2. Antal spelare\n3. Tidsåtgång\n4. Rekomenderad ålder\n5. Avbryt\n"))
-                result = []
-                while True:
-                    if (answer == 1):
-                        titel = input("Ange titel: ")
-                        result = searchGame("name", titel, games)
-                        break
-                    elif (answer == 2):
-                        players = input("Ange antal spelare: ")
-                        result = searchGame("players", players, games)
-                        break
-                    elif (answer == 3):
-                        time = input("Ange tidsåtgång: ")
-                        result = searchGame("time", time, games)
-                        break
-                    elif (answer == 4):
-                        age = input("Ange rekomenderad ålder: ")
-                        result = searchGame("age", age, games)
-                        break
-                    elif (answer == 5):
-                        break
+            while True:
+                try:   #Ser till att det är en siffra som fylls i.
+                    answer = int(input("1. Titel\n2. Antal spelare\n3. Tidsåtgång\n4. Rekomenderad ålder\n5. Avbryt\n"))
+                    result = []
+                    while True:
+                        if (answer == 1):
+                            titel = input("Ange titel: ")
+                            result = searchGame("name", titel, games)
+                            break
+                        elif (answer == 2):
+                            players = input("Ange antal spelare: ")
+                            result = searchGame("players", players, games)
+                            break
+                        elif (answer == 3):
+                            time = input("Ange tidsåtgång: ")
+                            result = searchGame("time", time, games)
+                            break
+                        elif (answer == 4):
+                            age = input("Ange rekomenderad ålder: ")
+                            result = searchGame("age", age, games)
+                            break
+                        elif (answer == 5):
+                            quit()
+                        else:
+                            print("Ogiltigt värde")
+                            answer = input()
+                    print("Vill du lägga till en till egenskap?\n")
+                    answer = int(input("1. Titel\n2. Antal spelare\n3. Tidsåtgång\n4. Rekomenderad ålder\n5. Avbryt\n"))
+                    while True:
+                        if (answer == 1):
+                            titel = input("Ange titel: ")
+                            result = searchGame("name", titel, games)
+                            break
+                        elif (answer == 2):
+                            players = input("Ange antal spelare: ")
+                            result = searchGame("players", players, games)
+                            break
+                        elif (answer == 3):
+                            time = input("Ange tidsåtgång: ")
+                            result = searchGame("time", time, games)
+                            break
+                        elif (answer == 4):
+                            age = input("Ange rekomenderad ålder: ")
+                            result = searchGame("age", age, games)
+                            break
+                        elif (answer == 5):
+                            break
+                        else:
+                            print("Ogiltigt värde")
+                            answer = input()
+                    if len(result):
+                        for i in result:
+                            print(i.__dict__)
                     else:
-                        print("Ogiltigt värde")
-                        answer = input()
-                if len(result):
-                    for i in result:
-                        print(i.__dict__)
-                else:
-                    print("Hittade inga spel")  
-            except ValueError:
-                print("Ogiltigt värde, försök igen\n")
-                continue      
+                        print("Hittade inga spel")  
+
+                    a = input("Vill du söka igen?\n")
+                    while input != "ja":
+                        if a == "ja":
+                            break
+                        elif a == "nej":
+                            quit()
+                        else:
+                            a = input("Svara med ett ja eller nej")
+                except ValueError:
+                    print("Ogiltigt värde, försök igen\n")
+                    continue      
 
     elif (a == 3):    #Lista över alla spel.
         games = gamesFromFile()

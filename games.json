@@ -22,10 +22,10 @@
             "age": 12
         },
         {
-            "id": 4,
-            "name": "mtg",
+            "id": 3,
+            "name": "chess",
             "players": 2,
-            "time": 20,
+            "time": 30,
             "age": 8
         }
     ]
